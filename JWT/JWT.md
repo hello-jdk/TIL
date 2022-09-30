@@ -2,7 +2,6 @@
 
 1. [JWT 개요](#1-jwt-개요)
 2. [JWT 구성](#2-jwt-구성)
-3. [구현](#3-node)
 
 ## 1. JWT 개요
 
@@ -88,7 +87,8 @@ c. Private Claim
 - 인코딩된 헤더 + 인코딩된 정보 로 이루어 지며
 - 비밀키를 넣어야지 디코딩 된다.
 
-## 3. NODE
+## 참고
 
-http://www.opennaru.com/opennaru-blog/jwt-json-web-token/
-https://velopert.com/2389
+http://www.opennaru.com/opennaru-blog/jwt-json-web-token/ <br>
+https://velopert.com/2389 <br>
+https://www.youtube.com/watch?v=mPB2CZiAkKM <br>
