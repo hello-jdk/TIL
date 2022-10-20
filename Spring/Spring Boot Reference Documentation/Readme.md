@@ -1,12 +1,3 @@
-# BoardService
-
-BoardService with Grade System REST API Server
-
-spring getting start 페이지를 보며 spring, spring boot에 대한 이해를 목표로 한다.
-
-- 구현체: 등급에 따른 게시판 기능 REST API Server
-- IDLE: Intellj
-
 ## Spring Boot Reference Document
 
 - 한페이지
