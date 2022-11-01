@@ -182,3 +182,113 @@ Fruit 및 자식 클래스의 타입을 제네릭으로 가지는 FruitBox클래
 예시 : `Juicer.<Apple>makeJuice(appleBox)` or 생략(추정)가능 `Juicer.makeJuice(appleBox)`
 
 # Enums
+
+JDk1.5
+
+### 열거형의 이해
+
+```
+//  enum으로 구현
+enum Direction {EAST, SOUTH, WEST, NORTH}
+
+
+// class로 구현
+class Direction {
+	static final Direction EAST = new Direction("EAST");
+	static final Direction SOUTH = new Direction("SOUTH");
+	static final Direction WEST = new Direction("WEST");
+	static final Direction NORTH = new Direction("NORTH");
+
+	private String name;
+
+	private Direction(String name) {
+		this.name = name;
+	}
+}
+```
+
+두가지는 똑같이 작동한다. (사용법은 다르다)
+
+### 사용
+
+<b>정의</b>
+
+```java
+enum Direction {
+
+	// 상수
+	EAST(1), SOUTH(3), WEST(-1), NORTH(10);
+
+	// 매개변수
+	private final int value;
+
+	// 생성자 private(기본값)는 생략가능하다
+	private Direction(int value) {
+		this.value = value;
+	}
+
+	public int getValue(){
+		return value;
+	}
+
+}
+```
+
+<b>상수 개선 - 추상메서드 추가</b>
+
+```java
+enum Direction {
+
+	// 상수
+	EAST(1,100)		{ int fare(int distance) { return distance*BASIC_FARE }},
+	SOUTH(3,150)	{ int fare(int distance) { return distance*BASIC_FARE + 300}},
+	WEST(-1,200)	{ int fare(int distance) { return distance*BASIC_FARE }},
+	NORTH(10,300)	{ int fare(int distance) { return distance*BASIC_FARE - 200}};
+
+	// 매개변수
+	private final int value;
+	private final int BASIC_FARE;
+
+	// 생성자
+	Direction(int value, int basicFare) {
+		this.value = value;
+		this.basicFare = BASIC_FARE;
+	}
+
+	...
+
+	// 추상메서드
+	abstract int fare(int distance);
+}
+```
+
+위와 같이 추상메서드를 통해 각 방향별로 요금을 다르게 정의할 수 있다.
+
+<b>선언</b>
+
+```
+Direction d1 = Direction.EAST;
+Direction d2 = Direction.valueOf("EAST");
+Direction d3 = Enum.valueOf(Direction.class, "EAST");
+```
+
+- `java.lang.Enum` 클래스 이용하기
+  - `Enum.valueOf(Enum클래스, String str)`
+
+기원 자체가 상수이기 때문에 변수명을 사용하지 않고 해당 Enum 상수값을 사용
+
+### Enum 메서드
+
+```
+// 해당 Enum의 모든 상수값을 배열형태로 반환
+Direction[] dArr = Direction.values();
+
+Direction d = Driection.EAST;
+Stirng 	상수이름 	= d.name(); 	// 상수 리터럴
+int	상수인덱스 	= d.ordinal();	// 상수 인덱스 (의존하지 않는게 좋음, 컴파일러에 따름)
+
+// Comparable
+Direction.EAST.compareTo(Direction.WEST);  // -2
+```
+
+# 애너테이션
