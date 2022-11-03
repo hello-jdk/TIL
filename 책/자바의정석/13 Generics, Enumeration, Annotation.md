@@ -1,3 +1,15 @@
+[1. Generics](#generics)
+
+- 컴파일 시 강타입체크, 제네릭 메서드, 와일드 카드, Comparator 쉽게 만들기
+
+[2. Enumberation](#enums)
+
+-
+
+[3. Annotation](#annotation)
+
+- 메타데이터
+
 # Generics
 
 ### 제네릭란
@@ -291,7 +303,7 @@ int	상수인덱스 	= d.ordinal();	// 상수 인덱스 (의존하지 않는게 
 Direction.EAST.compareTo(Direction.WEST);  // -2
 ```
 
-# 애너테이션
+# Annotation
 
 <b>javadoc.exe</b>
 소스코드와 문서를 하나의 파일로 관리하기 위해 만든 프로그램
