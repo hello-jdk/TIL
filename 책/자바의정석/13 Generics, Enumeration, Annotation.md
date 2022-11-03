@@ -4,11 +4,11 @@
 
 [2. Enumberation](#enums)
 
--
+- 열거형 참조 타입,
 
 [3. Annotation](#annotation)
 
-- 메타데이터
+- 메타데이터, 표준(내장) 애너테이션, 메타 애너테이션, 사용자 정의 애너테이션
 
 # Generics
 
